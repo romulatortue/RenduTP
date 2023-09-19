@@ -23,3 +23,21 @@ class Pokemon {
             console.log("Votre pokémon " + this.nom + " à actuellement " + this.pointsDeVie + " il inflige " + this.pointsAttaque + " dégats par attaques");
     }
 }
+class PokemonFeu extends Pokemon {
+    constructor(nom, pointsDeVie, pointsAttaque) {
+        super(nom, pointsDeVie, pointsAttaque);
+        this.type = "feu";
+    }
+}
+class PokemonEau extends Pokemon {
+    constructor(nom, pointsDeVie, pointsAttaque) {
+        super(nom, pointsDeVie, pointsAttaque);
+        this.type = "eau";
+    }
+}
+class PokemonPlante extends Pokemon {
+    constructor(nom, pointsDeVie, pointsAttaque) {
+        super(nom, pointsDeVie, pointsAttaque);
+        this.type = "plante";
+    }
+}
