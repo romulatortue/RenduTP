@@ -116,12 +116,13 @@ class PokemonPlante extends Pokemon{
 
 }
 
-
+// création des pokemons
 let dracaufeu =new PokemonFeu("dracaufeu",150,40);
 let miaouss =new Pokemon("miaouss",100,20);
 let tortank = new PokemonEau("tortank",200,30);
 let jungko = new PokemonPlante("jungko",120,50);
 
+// phase de test
 tortank.afficherInformation();
 jungko.attaquer(tortank);
 tortank.afficherInformation();
