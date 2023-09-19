@@ -24,6 +24,10 @@ class Pokemon {
     }
 
     afficherInformation(){
-        console.log("Votre pokémon " + this.nom +" à actuellement "+this.pointsDeVie+" il inflige "+this.pointsAttaque+" dégats par attaques");
+        if(this.estMort()){
+            console.log("Votre pokémon " + this.nom +" est actuellement mort ");
+        }
+        else
+            console.log("Votre pokémon " + this.nom +" à actuellement "+this.pointsDeVie+" il inflige "+this.pointsAttaque+" dégats par attaques");
     }
 }
