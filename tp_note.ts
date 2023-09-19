@@ -1,13 +1,16 @@
 class Pokemon {
     private nom: string;
-    private pointsDeVie: number;
-    private pointsAttaque: number;
+    public pointsDeVie: number;
+    protected pointsAttaque: number;
+    public type:String;
+
 
 
     constructor(nom: string, pointsDeVie: number,pointsAttaque: number) {
         this.nom=nom;
         this.pointsDeVie=pointsDeVie;
         this.pointsAttaque=pointsAttaque;
+        this.type="normal";
     }
 
     estMort(){
@@ -32,8 +35,7 @@ class Pokemon {
     }
 }
 
-class PokemonFeu extends Pokemon{
-    private type:String;
+class PokemonFeu extends Pokemon {
 
                 constructor(nom: string, pointsDeVie: number,pointsAttaque: number)
                 {
@@ -41,10 +43,26 @@ class PokemonFeu extends Pokemon{
                     this.type="feu";
                 }
 
+                attaquer(p: Pokemon) {
+                    switch(p.type){
+                        case "eau":{
+                            p.pointsDeVie-=(this.pointsAttaque/2);
+                            break;
+                        }
+                        case "plante":{
+                            p.pointsDeVie-=(this.pointsAttaque*2);
+                            break;
+                        }
+                        case "normal":{
+                            p.pointsDeVie-=(this.pointsAttaque);
+                            break;
+                        }
+                    }
+                }
+
 }
 
 class PokemonEau extends Pokemon{
-    private type:String;
 
                 constructor(nom: string, pointsDeVie: number,pointsAttaque: number)
                 {
@@ -52,10 +70,26 @@ class PokemonEau extends Pokemon{
                     this.type="eau";
                 }
 
+                attaquer(p: Pokemon) {
+                    switch(p.type){
+                        case "plante":{
+                            p.pointsDeVie-=(this.pointsAttaque/2);
+                            break;
+                        }
+                        case "feu":{
+                            p.pointsDeVie-=(this.pointsAttaque*2);
+                            break;
+                        }
+                        case "normal":{
+                            p.pointsDeVie-=(this.pointsAttaque);
+                            break;
+                        }
+                    }
+                }
+
 }
 
 class PokemonPlante extends Pokemon{
-    private type:String;
 
                 constructor(nom: string, pointsDeVie: number,pointsAttaque: number)
                 {
@@ -63,5 +97,27 @@ class PokemonPlante extends Pokemon{
                     this.type="plante";
                 }
 
+                attaquer(p: Pokemon) {
+                    switch(p.type){
+                        case "eau":{
+                            p.pointsDeVie-=(this.pointsAttaque/2);
+                            break;
+                        }
+                        case "feu":{
+                            p.pointsDeVie-=(this.pointsAttaque*2);
+                            break;
+                        }
+                        case "normal":{
+                            p.pointsDeVie-=(this.pointsAttaque);
+                            break;
+                        }
+                    }
+                }
+
 }
+
+
+
+
+
 
