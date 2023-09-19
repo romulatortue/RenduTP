@@ -21,7 +21,7 @@ class Pokemon {
             console.log("Votre pokémon " + this.nom + " est actuellement mort ");
         }
         else
-            console.log("Votre pokémon " + this.nom + " à actuellement " + this.pointsDeVie + " il inflige " + this.pointsAttaque + " dégats par attaques");
+            console.log("Votre pokémon " + this.nom + " à actuellement " + this.pointsDeVie + "PV, il inflige " + this.pointsAttaque + " dégats par attaques");
     }
 }
 class PokemonFeu extends Pokemon {
@@ -75,11 +75,11 @@ class PokemonPlante extends Pokemon {
     }
     attaquer(p) {
         switch (p.type) {
-            case "eau": {
+            case "feu": {
                 p.pointsDeVie -= (this.pointsAttaque / 2);
                 break;
             }
-            case "feu": {
+            case "eau": {
                 p.pointsDeVie -= (this.pointsAttaque * 2);
                 break;
             }
@@ -90,3 +90,18 @@ class PokemonPlante extends Pokemon {
         }
     }
 }
+let dracaufeu = new PokemonFeu("dracaufeu", 150, 40);
+let miaouss = new Pokemon("miaouss", 100, 20);
+let tortank = new PokemonEau("tortank", 200, 30);
+let jungko = new PokemonPlante("jungko", 120, 50);
+tortank.afficherInformation();
+jungko.attaquer(tortank);
+tortank.afficherInformation();
+miaouss.afficherInformation();
+dracaufeu.attaquer(miaouss);
+miaouss.afficherInformation();
+tortank.attaquer(dracaufeu);
+dracaufeu.afficherInformation();
+tortank.attaquer(dracaufeu);
+tortank.attaquer(dracaufeu);
+dracaufeu.afficherInformation();
